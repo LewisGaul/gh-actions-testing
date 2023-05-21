@@ -1,0 +1,8 @@
+name: ssh
+on: [push]
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
