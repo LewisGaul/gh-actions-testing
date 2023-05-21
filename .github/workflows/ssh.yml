@@ -4,5 +4,12 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup upterm session
+    - name: Clone xrd-tools repo
+      run: git clone https://github.com/ios-xr/xrd-tools.git
+    - name: Host setup
+      run: |
+        true
+    - name: Run host-check
+      run: ./xrd-tools/scripts/host-check -e docker xr-compose || true
+    - name: Start upterm SSH session
       uses: lhotari/action-upterm@v1
