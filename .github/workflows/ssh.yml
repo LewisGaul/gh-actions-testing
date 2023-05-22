@@ -19,6 +19,7 @@ jobs:
         sudo sysctl -w net.bridge.bridge-nf-call-iptables=0
         sudo sysctl -w net.bridge.bridge-nf-call-ip6tables=0
         # echo 3072 | sudo tee /proc/sys/vm/nr_hugepages
+        sudo apt install -y apparmor-utils && sudo aa-teardown
     - name: Run host-check
       run: sudo ./xrd-tools/scripts/host-check -e docker xr-compose || true
     - name: Start upterm SSH session
